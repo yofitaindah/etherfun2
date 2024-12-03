@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="h-[80px] bg-gray-400">Ini header</header>
+    <main class="px-4">
+      <h1 class="text-3xl text-center mb-6">Move Pump Ranking</h1>
+
+      <div class="flex gap-4 w-full sm:flex-row flex-col">
+        <div class="w-full">
+          <caption>
+            launching soon
+          </caption>
+          <table id="table1" class="border border-slate-400 w-full">
+            <thead>
+              <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Market Cap</td>
+                <td>Bonding</td>
+              </tr>
+            </thead>
+            <tbody id="table1_launch">
+              <tr>
+                <td>1</td>
+                <td>Big</td>
+                <td>$50000</td>
+                <td>80%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="w-full">
+          <caption>
+            Market Cap Ranking
+          </caption>
+          <table id="table2" class="border border-slate-400 w-full">
+            <thead>
+              <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Market Cap</td>
+                <td>Bonding</td>
+              </tr>
+            </thead>
+            <tbody id="table2_launch">
+              <tr>
+                <td>1</td>
+                <td>Big</td>
+                <td>$50000</td>
+                <td>80%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Get the <tbody> element
+      const tbody1 = document.getElementById("table1_launch");
+      const tbody2 = document.getElementById("table2_launch");
+      // Sample data
+      const data = [
+        { id: 1, name: "Alice", market_cap: 25, bonding: '80%' },
+        { id: 2, name: "Bob", market_cap: 25, bonding: '80%' },
+        { id: 3, name: "Charlie", market_cap: 25, bonding: '80%'  },
+      ];
+
+    //   console.log('data', data);
+
+      // Loop through the data array
+      data.forEach((item) => {
+        // Create a new table row
+        const row = document.createElement("tr");
+
+        // Create and append cells for each object property
+        for (const key in item) {
+            // console.log('key', key);
+          const cell = document.createElement("td");
+          cell.textContent = item[key]; // item['name'] = "Alice"
+          row.appendChild(cell);
+        }
+
+        // Append the row to the <tbody>
+        tbody1.appendChild(row);
+      });
+
+      data.forEach((item) => {
+        // Create a new table row
+        const row = document.createElement("tr");
+
+        // Create and append cells for each object property
+        for (const key in item) {
+            // console.log('key', key);
+          const cell = document.createElement("td");
+          cell.textContent = item[key]; // item['name'] = "Alice"
+          row.appendChild(cell);
+        }
+
+        // Append the row to the <tbody>
+        tbody2.appendChild(row);
+      });
+    </script>
+  </body>
+</html>
